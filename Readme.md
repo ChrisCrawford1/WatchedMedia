@@ -39,4 +39,4 @@ Store the file you wish to process in the in your Downloads folder
 The program will then convert the CSV file to XLSX and will then run through the data provided taking into account the aforementioned assumption.
 
 ## Disclaimer!
-This code was written for myself and using the OSC environment and has not been tested on a Windows / Linux setup. As such, if ran on one of these operating systems there may be unexpected results.
+This code was written for myself and using the OSX environment and has not been tested on a Windows / Linux setup. As such, if ran on one of these operating systems there may be unexpected results.
