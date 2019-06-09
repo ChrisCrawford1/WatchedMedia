@@ -3,20 +3,16 @@ import openpyxl
 
 
 class CalculateData:
-    # I know...a global, not the greatest. FIXME later
     media = []
 
-    def __init__(self, csv_file):
-        self.csv_file = csv_file
-
     def get_workbook(self):
-        convert = Converter(self.csv_file)
+        convert = Converter()
         return convert.from_csv_to_workbook()
 
     def analyse_workbook(self):
         workbook = openpyxl.load_workbook(self.get_workbook())
         active_sheet = workbook.worksheets[0]
-        print('{} has {} columns and {} rows'.format(active_sheet, active_sheet.max_column, active_sheet.max_row))
+        print('{} has {} columns and {} rows'.format(active_sheet, active_sheet.max_column, active_sheet.max_row) + '\n')
 
         for i in range(2, active_sheet.max_row):
             value = str(active_sheet.cell(column=1, row=i).value)
