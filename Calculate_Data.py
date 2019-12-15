@@ -1,6 +1,6 @@
 from Converter import Converter
 import openpyxl
-
+import plotly.graph_objects as go
 
 class CalculateData:
     media = []
@@ -43,8 +43,26 @@ class CalculateData:
             else:
                 movie_count += 1
 
-        tv_percentage = round((tv_count / len(self.media)) * 100, 1)
-        movie_percentage = round((movie_count / len(self.media)) * 100, 1)
+        stats = {
+            'tv_count' : tv_count,
+            'movie_count' : movie_count,
+            'tv_percentage' : round((tv_count / len(self.media)) * 100, 1),
+            'movie_percentage' : round((movie_count / len(self.media)) * 100, 1),
+            'total_media' : len(self.media)
+        }
 
-        print('TV Shows Watched: {}({}%), Movies Watched:{}({}%)\nTotal Media Consumed: {}'
-              .format(tv_count, tv_percentage, movie_count, movie_percentage, len(self.media)))
+        output_type = input('What output do you want? [Image, Raw]: ').lower()
+        self.provide_output(stats, output_type.lower())
+
+    def provide_output(self, stats, type):
+        if type == 'raw':
+             print('TV Shows Watched: {}({}%), Movies Watched:{}({}%)\nTotal Media Consumed: {}'
+             .format(stats['tv_count'], stats['tv_percentage'], 
+             stats['movie_count'], stats['movie_percentage'], stats['total_media']))
+
+        if type == 'image':
+            labels = ['TV Shows Watched','Movies Watched']
+            values = [stats['tv_count'], stats['movie_count']]
+
+            fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+            fig.show()
