@@ -7,9 +7,23 @@ The Program can take the downloaded csv file that can be gained from your Netfli
 As this is CSV I also wrote some code to convert it to XLSX which is the format OpenPyXL uses.
 
 ## Requirements
-To run the program you will require
 
+#### Note
+I would recommend running this program within a pipenv environment and the dependencies will be pulled in from the Pipfile. Otherwise these dependencies will have to be brought in manually.
+
+
+To run the program you will require(Using Pipenv)
 - Python 3.6+
+- electron@1.8.4 orca(Via NPM)
+
+
+To run the program you will require(Not Using Pipenv)
+- Python 3.6+
+- electron@1.8.4 orca (Via NPM)
+- openpyxl
+- plotly
+- psutil
+- requests
 
 ## Installation
 Unzip to desired location.
