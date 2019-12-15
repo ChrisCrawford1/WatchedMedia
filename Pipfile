@@ -7,6 +7,9 @@ verify_ssl = true
 
 [packages]
 openpyxl = "*"
+plotly = "==4.4.1"
+psutil = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
